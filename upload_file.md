@@ -14,7 +14,8 @@
 > `s3_object.put_object(Bucket = 'test-bucket', Key = 'data1.csv', Body = 'output.csv')`
 
 >
-**s3_object** is the name of s3 client object created using boto3. **test-bucket** is the name of the bucket where the object will be stored.
+**s3_object** is the name of s3 client object created using boto3. 
+**test-bucket** is the name of the bucket where the object will be stored.
 **data1.csv** (source) is the input file that will be put into the destination.
 **output.csv** (destination) will be the name of the file that will be given once uploaded.
 
@@ -25,7 +26,8 @@ But what if we want to put object which is present in the subdirectories of an s
 > `s3_object.put_object(Bucket = 'test-bucket', Key = 'folder1/folder2/data1.csv', Body = 'output.csv')`
 
 >
-**s3_object** is the name of s3 client object created using boto3. **test-bucket** is the name of the bucket where the object will be stored.
+**s3_object** is the name of s3 client object created using boto3.
+**test-bucket** is the name of the bucket where the object will be stored.
 **data1.csv** (source) is the input file which is present in *folder1/folder2* buckets subdirectories that will be put into the destination.
 **output.csv** (destination) will be the name of the file that will be given once uploaded.
 
