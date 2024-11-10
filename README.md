@@ -1,2 +1,2 @@
 # AWS-Essentials
-A repository that shows some of the key information regarding some of the AWS Services
+A repository that shows some of the key code reference regarding some of the AWS Services
