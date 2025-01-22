@@ -76,3 +76,58 @@ In this example, the Spark application is submitted to a YARN cluster with the f
 - spark.executor.cores=2: Each executor will use 2 CPU cores.
 
 ---
+
+### Running a Spark Script with Arguments
+
+In the tech world, moving from development (dev) to production (PROD) often involves using the same code while changing the environment (`env`). Here's an example of how to run a Spark script with `environment`, `database_name` as arguments.
+
+## Python Script
+
+Below is a sample Python script that creates a Spark session and processes the arguments:
+
+```python
+import sys
+from pyspark.sql import SparkSession
+
+# Creating Spark session
+spark = SparkSession.builder.appName("Arguments").getOrCreate()
+
+# Reading arguments
+env = sys.argv[1]
+database_name = sys.argv[2]  + "_" + env
+table_name = "players_data"
+
+# Building query
+query = f"SELECT * FROM {database_name}.{table_name}"
+
+# Executing the query
+df = spark.sql(query)
+df.show()
+
+# Stopping the Spark session
+spark.stop()
+```
+
+- As you can see that it needs two arguments from the user: `environment`, `database_name`.
+- So, while submitting the job with the python file we also needs to send the arguments.
+- The command to do that is as follows:
+  ```bash
+  spark-submit --master yarn --deploy-mode client s3://bucket-rr/players/scores.py prod players_db
+  ```
+- When using `spark-submit`, any arguments that are not prefixed with `--` are passed directly to the application and can be accessed via `sys.argv` in your script.
+- These arguments should **always be placed at the end of the command**, after all other Spark-specific options.
+
+---
+
+#### Running a python file as a Step in EMR Cluster
+- Select `Step type` as **Custom JAR**
+- Give a `Name` to the Step
+- `JAR Location` as **command-runner.jar**
+- `Arguments`: **spark-submit command**
+- `Permission`: Select correct **Role** for running the script
+- **Submit** the step
+
+
+**NOTE: This is just one of the ways to run a python script as a step and AWS UI can have changes any time, as its always evolving**
+
+---
