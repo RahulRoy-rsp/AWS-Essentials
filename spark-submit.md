@@ -8,8 +8,8 @@
 
 The `spark-submit` command accepts a variety of arguments to specify the application configuration, including:
 
-- `--master`: The master URL for the cluster (e.g., `local`, `yarn`, `mesos`).
-- `--deploy-mode`: The deployment mode (`client` or `cluster`).
+- [`--master`](https://github.com/RahulRoy-rsp/AWS-Essentials/blob/main/spark-submit.md#--master): The master URL for the cluster (e.g., `local`, `yarn`, `mesos`).
+- [`--deploy-mode`](https://github.com/RahulRoy-rsp/AWS-Essentials/blob/main/spark-submit.md#--deploy-mode): The deployment mode (`client` or `cluster`).
 - `--class`: The entry point for your application (required for Java and Scala applications).
 - `--name`: A name for your Spark application.
 - `--num-executors`: The number of executors to launch.
@@ -18,7 +18,7 @@ The `spark-submit` command accepts a variety of arguments to specify the applica
 - `--driver-memory`: Memory for the driver.
 - `--files`: Comma-separated list of files to be placed in the working directory of each executor.
 - `--archives`: Comma-separated list of archives to be extracted into the working directory of each executor.
-- `--conf`: Arbitrary Spark configuration properties in key=value format.
+- [`--conf`](https://github.com/RahulRoy-rsp/AWS-Essentials/blob/main/spark-submit.md#--conf): Arbitrary Spark configuration properties in key=value format.
 
 ## Example
 
